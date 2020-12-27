@@ -28,11 +28,13 @@
 
 ## Requirements
 
-distractionless targets and is tested against the **latest Build** of Sublime Text, currently requiring **`Build 4074`** or later.
+!!! panel-warning "Requirements"
 
-* Download [Sublime Text](https://www.sublimetext.com)
-* [Install Package Control](https://packagecontrol.io/installation) via the menu: `Tools > Install Package Control`
-    * Close and reopen Sublime Text after having installed Package Control.
+    `distractionless` targets and is tested against the **latest Build** of Sublime Text, currently requiring **`Build 4074`** or later.
+
+    * Download [Sublime Text](https://www.sublimetext.com)
+    * [Install Package Control](https://packagecontrol.io/installation) via the menu: `Tools > Install Package Control`
+        * Close and reopen Sublime Text after having installed Package Control.
 
 ## Installation
 

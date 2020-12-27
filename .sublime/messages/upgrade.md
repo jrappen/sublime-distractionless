@@ -1,5 +1,6 @@
-# Thank you for upgrading `distractionless` to `v2.8.0`
+# Thank you for upgrading `distractionless` to `v2.9.0`
 
-> 2020-12-21
+> 2020-12-27
 
-* **package:** shrink package, remove JavaScript helper files
+* **Python:** add frontmatter settings to mdpopups output
+* **Documentation:** enhance readability

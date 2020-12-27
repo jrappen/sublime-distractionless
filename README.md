@@ -5,7 +5,7 @@
 [![SublimeHQ Discord](https://img.shields.io/discord/280102180189634562?label=SublimeHQ%20Discord&logo=discord&style=flat-square)](https://discord.gg/D43Pecu)
 [![Donate via PayPal](https://img.shields.io/badge/paypal.me-jrappen-009cde.svg?style=flat-square&logo=paypal)](https://www.paypal.me/jrappen)
 
-# distractionless plug-in for [Sublime Text](https://www.sublimetext.com)
+# `distractionless` plug-in for [Sublime Text](https://www.sublimetext.com)
 
 > Automatic windowed distraction free mode while editing in Sublime Text.
 
@@ -37,7 +37,7 @@
 
 ## Requirements
 
-distractionless targets and is tested against the **latest Build** of Sublime Text, currently requiring **`Build 4074`** or later.
+`distractionless` targets and is tested against the **latest Build** of Sublime Text, currently requiring **`Build 4074`** or later.
 
 * Download [Sublime Text](https://www.sublimetext.com)
 * [Install Package Control](https://packagecontrol.io/installation) via the menu `Tools > Install Package Control`
@@ -55,9 +55,9 @@ Using **Package Control** is required, as it keeps your packages (with their dep
 
 ## Usage
 
-distractionless makes Sublime Text automatically enter [Distraction Free mode](https://www.sublimetext.com/docs/distraction_free.html) in a windowed environment when you start editing a file.
+`distractionless` makes Sublime Text automatically enter [Distraction Free mode](https://www.sublimetext.com/docs/distraction_free.html) in a windowed environment when you start editing a file.
 
-distractionless will then make Sublime Text automatically switch back to normal mode as soon as:
+`distractionless` will then make Sublime Text automatically switch back to normal mode as soon as:
 
 * you save, open or clone a file.
 * you open new, switch or close tabs.
@@ -81,7 +81,7 @@ You might want to set the following in `Preferences > Settings`:
 }
 ```
 
-Use the distractionless settings to further customize when and what is toggled:
+Use the `distractionless` settings to further customize when and what is toggled:
 
 * `Preferences > Package Settings > distractionless > Settings`
 

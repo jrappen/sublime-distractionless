@@ -1,5 +1,12 @@
 # Changelog `distractionless`
 
+## 2.9.0
+
+> 2020-12-27
+
+* **Python:** add frontmatter settings to mdpopups output
+* **Documentation:** enhance readability
+
 ## 2.8.0
 
 > 2020-12-21

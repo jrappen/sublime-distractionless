@@ -28,11 +28,13 @@
 
 ## Voraussetzungen
 
-distractionless ist als Erweiterung für die **neusten Build** von Sublime Text gedacht und erfordert im Moment **`Build 4074`** oder neuer.
+!!! panel-warning "Voraussetzungen"
 
-* Lade [Sublime Text](https://www.sublimetext.com) herunter
-* [Installiere Package Control](https://packagecontrol.io/installation) über den Menüeintrag: `Tools > Install Package Control`
-    * Schließe und öffne Sublime Text nach der Installation von Package Control.
+    `distractionless` ist als Erweiterung für den **neusten Build** von Sublime Text gedacht und erfordert im Moment **`Build 4074`** oder neuer.
+
+    * Lade [Sublime Text](https://www.sublimetext.com) herunter
+    * [Installiere Package Control](https://packagecontrol.io/installation) über den Menüeintrag: `Tools > Install Package Control`
+        * Schließe und öffne Sublime Text nach der Installation von Package Control.
 
 ## Installation
 
