@@ -1,6 +1,5 @@
-# Thank you for upgrading `distractionless` to `v2.9.0`
+# Thank you for upgrading `distractionless` to `v2.9.1`
 
-> 2020-12-27
+> 2020-12-28
 
-* **Python:** add frontmatter settings to mdpopups output
-* **Documentation:** enhance readability
+* **Python:** fixed opening docs after PkgCtrl events

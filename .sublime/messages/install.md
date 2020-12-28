@@ -1,5 +1,11 @@
 # Thank you for installing `distractionless`
 
+## Requirements
+
+!!! panel-warning "Requirements"
+
+    This package currently requires `Sublime Text Build 4074` or later.
+
 ## Documentation
 
 Please read the docs, which you can find:
