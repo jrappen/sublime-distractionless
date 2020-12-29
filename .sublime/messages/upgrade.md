@@ -1,5 +1,6 @@
-# Thank you for upgrading `distractionless` to `v2.9.1`
+# Thank you for upgrading `distractionless` to `v2.9.2`
 
-> 2020-12-28
+> 2020-12-29
 
-* **Python:** fixed opening docs after PkgCtrl events
+* **Python:** move some code snippets
+* **mdpopups:** add `pymdownx.magiclink` extension

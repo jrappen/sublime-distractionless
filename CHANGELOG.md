@@ -1,5 +1,12 @@
 # Changelog `distractionless`
 
+## 2.9.2
+
+> 2020-12-29
+
+* **Python:** move some code snippets
+* **mdpopups:** add `pymdownx.magiclink` extension
+
 ## 2.9.1
 
 > 2020-12-28
