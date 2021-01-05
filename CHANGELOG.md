@@ -1,16 +1,15 @@
 # Changelog `distractionless`
 
-## 2.9.2
+## 2.10.0
 
-> 2020-12-29
+> 2020-01-05
 
+* **Python:** Fix loading and unloading plugin on `ST4xxx+`
+* **Commands & Menus:** Update captions
+* **PkgCtrl:** ship zipped package
+* **chore:** remove redundant files
 * **Python:** move some code snippets
 * **mdpopups:** add `pymdownx.magiclink` extension
-
-## 2.9.1
-
-> 2020-12-28
-
 * **Python:** fixed opening docs after PkgCtrl events
 
 ## 2.9.0
@@ -25,11 +24,6 @@
 > 2020-12-21
 
 * **package:** shrink package, remove JavaScript helper files
-
-## 2.7.1
-
-> 2020-05-03
-
 * **Python:** Use new mdpopups API
 * **Python:** Use Py3.3 until PkgCtrl handles 3.8
 * **mdpopups:** Show docs via html sheet (ST4065+)

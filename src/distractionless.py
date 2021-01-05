@@ -6,6 +6,7 @@ import sublime
 import sublime_plugin
 from collections import defaultdict
 
+
 PKG_NAME = __package__.split('.')[0]
 DL_PREF = None
 counters = None
@@ -19,13 +20,13 @@ def load_settings(reload=False):
         DL_PREF.clear_on_change('reload')
         DL_PREF.add_on_change('reload', lambda: load_settings(reload=True))
     except Exception as e:
-        print(e)
+        print('{}: Exception: {}'.format(PKG_NAME, e))
 
     if reload:
         sublime.status_message('{}: Reloaded settings on change'.format(PKG_NAME))
 
 
-def plugin_loaded():
+def _start():
 
     global counters
     counters = defaultdict(int)
@@ -33,7 +34,7 @@ def plugin_loaded():
     load_settings(reload=False)
 
 
-def plugin_unloaded():
+def _stop():
 
     global DL_PREF
     DL_PREF.clear_on_change('reload')

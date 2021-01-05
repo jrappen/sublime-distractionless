@@ -24,7 +24,7 @@
         }
     },
     {
-        "caption": "distractionless: Issues",
+        "caption": "distractionless: Report an issue",
         "command": "open_url",
         "args":
         {
@@ -32,7 +32,7 @@
         }
     },
     {
-        "caption": "distractionless: Donations",
+        "caption": "distractionless: Donate to support development",
         "command": "open_url",
         "args":
         {
