@@ -7,11 +7,9 @@ from .src import *
 
 def plugin_loaded():
 
-    from .src.distractionless import _start
-    _start()
+    distractionless.plugin_loaded()
 
 
 def plugin_unloaded():
 
-    from .src.distractionless import _stop
-    _stop()
+    distractionless.plugin_unloaded()

@@ -12,13 +12,15 @@ DL_PREF = None
 counters = None
 
 
-def load_settings(reload=False):
+def plugin_loaded(reload=False):
 
     try:
+        global counters
+        counters = defaultdict(int)
         global DL_PREF
         DL_PREF = sublime.load_settings('{}.sublime-settings'.format(PKG_NAME))
         DL_PREF.clear_on_change('reload')
-        DL_PREF.add_on_change('reload', lambda: load_settings(reload=True))
+        DL_PREF.add_on_change('reload', lambda: plugin_loaded(reload=True))
     except Exception as e:
         print('{}: Exception: {}'.format(PKG_NAME, e))
 
@@ -26,15 +28,7 @@ def load_settings(reload=False):
         sublime.status_message('{}: Reloaded settings on change'.format(PKG_NAME))
 
 
-def _start():
-
-    global counters
-    counters = defaultdict(int)
-
-    load_settings(reload=False)
-
-
-def _stop():
+def plugin_unloaded():
 
     global DL_PREF
     DL_PREF.clear_on_change('reload')

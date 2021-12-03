@@ -1,8 +1,15 @@
 # Changelog `distractionless`
 
+## 2.11.0
+
+> 2021-12-03
+
+* **Python:** Fix loading and unloading plugin on `ST4xxx+`
+* **mdpopups:** fix css frontmatter input
+
 ## 2.10.0
 
-> 2020-01-05
+> 2021-01-05
 
 * **Python:** Fix loading and unloading plugin on `ST4xxx+`
 * **Commands & Menus:** Update captions

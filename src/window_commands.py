@@ -8,23 +8,33 @@ import sublime_plugin
 
 CSS = '''
 html {
+    background-color: var(--background);
     margin: 16px;
 }
 body {
+    color: var(--foreground);
     font-family: "Open Sans", "Helvetica Neue", "Segoe UI", Helvetica, Arial, sans-serif;
     line-height: 1.6;
 }
 h1 {
+    color: color(var(--foreground) l(- 10%));
     font-size: 2.0rem;
     margin: 0.7rem 0 0 0;
 }
+html.dark h1 {
+    color: color(var(--foreground) l(+ 10%));
+}
 h2 {
+    color: color(var(--foreground) a(0.9));
     font-size: 1.4rem;
     margin: 1rem 0 0.4rem 0;
 }
 h3 {
     font-size: 1.2rem;
     margin: 1rem 0 0.1rem 0;
+}
+a {
+    color: var(--bluish);
 }
 code {
     font-size: 0.9rem;
@@ -68,9 +78,8 @@ class DistractionlessOpenDocs(sublime_plugin.WindowCommand):
     def run(self, resource_path='docs/en/README.md'):
         try:
             w = self.window
-            v = w.active_view()
             import mdpopups
-            preview_sheet = mdpopups.new_html_sheet(
+            mdpopups.new_html_sheet(
                 window=w,
                 name='{}/{}'.format(PKG_NAME, resource_path),
                 contents=mdpopups.format_frontmatter(FRONTMATTER) + sublime.load_resource('Packages/{}/{}'.format(PKG_NAME, resource_path)),
@@ -86,7 +95,7 @@ class DistractionlessOpenDocs(sublime_plugin.WindowCommand):
         try:
             import mdpopups
             return True
-        except Exception as e:
+        except Exception:
             return False
 
     # def description(self): return str
