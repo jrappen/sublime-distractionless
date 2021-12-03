@@ -1,5 +1,12 @@
 # Changelog `distractionless`
 
+## 2.11.1
+
+> 2021-12-03
+
+* **Python:** Fix plugin loading
+* **Python:** Fix dependencies
+
 ## 2.11.0
 
 > 2021-12-03
