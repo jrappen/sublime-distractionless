@@ -2,9 +2,6 @@
 # coding: utf-8
 
 
-import sublime
-
-
 from .src import *
 
 

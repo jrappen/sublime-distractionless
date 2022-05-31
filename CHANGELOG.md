@@ -1,5 +1,11 @@
 # Changelog `distractionless`
 
+## 2.12.1
+
+> 2022-05-31
+
+* **Python:** Fix a few minor issues with typing
+
 ## 2.12.0
 
 > 2022-05-31

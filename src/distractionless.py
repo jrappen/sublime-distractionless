@@ -8,7 +8,6 @@ import sublime_plugin
 
 from collections import defaultdict
 from typing import (
-    Any,
     Union
 )
 
@@ -37,25 +36,29 @@ def plugin_loaded(reload: bool = False) -> None:
 def plugin_unloaded() -> None:
 
     global DL_PREF
-    DL_PREF.clear_on_change('reload')
+    if DL_PREF is not None:
+        DL_PREF.clear_on_change('reload')
 
 
 def reset_counter(id: int) -> None:
 
     global counters
-    counters[id] = 0
+    if counters is not None:
+        counters[id] = 0
 
 
 def increment_counter(id: int) -> int:
 
     global counters
-    counters[id] += 1
-
-    return counters[id]
+    if counters is not None:
+        counters[id] += 1
+        return counters[id]
+    else:
+        return 0
 
 def reset_view_setting(
     V_PREF: sublime.Settings,
-    SYNTAX_PREF: sublime.Settings,
+    SYNTAX_PREF: Union[sublime.Settings, None],
     PREF: sublime.Settings,
     setting: str,
     default: sublime.Value
@@ -104,10 +107,11 @@ class DistractionlessListener(sublime_plugin.EventListener):
             reset_view_setting(V_PREF, SYNTAX_PREF, PREF, 'scroll_past_end', True)
             reset_view_setting(V_PREF, SYNTAX_PREF, PREF, 'word_wrap', 'auto')
             reset_view_setting(V_PREF, SYNTAX_PREF, PREF, 'wrap_width', 0)
-        if DL_PREF.get('distractionless.toggle_sidebar', True):
-            w.set_sidebar_visible(True)
-        if DL_PREF.get('distractionless.toggle_minimap', True):
-            w.set_minimap_visible(True)
+        if DL_PREF is not None:
+            if DL_PREF.get('distractionless.toggle_sidebar', True):
+                w.set_sidebar_visible(True)
+            if DL_PREF.get('distractionless.toggle_minimap', True):
+                w.set_minimap_visible(True)
 
     def on_modified_async(self, view) -> None:
         if view.settings().get('is_widget', False):
@@ -116,6 +120,8 @@ class DistractionlessListener(sublime_plugin.EventListener):
         if w is None:
             w = sublime.active_window()
         count: int = increment_counter(w.id())
+        if DL_PREF is None:
+            return
         if count is not DL_PREF.get('distractionless.toggle_after', 1):
             return
         # Sublime Text > Preferences > Settings - Distraction Free
