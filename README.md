@@ -2,14 +2,12 @@
 [![Required ST Build](https://img.shields.io/badge/ST-4074+-orange.svg?style=flat-square&logo=sublime-text)](https://www.sublimetext.com)
 [![Downloads Package Control](https://img.shields.io/packagecontrol/dt/distractionless.svg?style=flat-square)](https://packagecontrol.io/packages/distractionless)
 [![Latest tag](https://img.shields.io/github/tag/jrappen/sublime-distractionless.svg?style=flat-square&logo=github)](https://github.com/jrappen/sublime-distractionless/tags)
-[![SublimeHQ Discord](https://img.shields.io/discord/280102180189634562?label=SublimeHQ%20Discord&logo=discord&style=flat-square)](https://discord.gg/D43Pecu)
 [![Donate via PayPal](https://img.shields.io/badge/paypal.me-jrappen-009cde.svg?style=flat-square&logo=paypal)](https://www.paypal.me/jrappen)
 
 # `distractionless` plug-in for [Sublime Text](https://www.sublimetext.com)
 
 > Automatic windowed distraction free mode while editing in Sublime Text.
 
-* [Documentation](#documentation)
 * [Requirements](#requirements)
 * [Installation](#installation)
 * [Usage](#usage)
@@ -17,15 +15,6 @@
 * [Donations](#donations)
 
 ![Screencast](./docs/img/screencast.gif)
-
-## Documentation
-
-> Plugin documentation is available via the menu or command palette.
-
-* English:
-  <https://github.com/jrappen/sublime-distractionless/blob/master/docs/en/README.md>
-* German (Deutsch):
-  <https://github.com/jrappen/sublime-distractionless/blob/master/docs/de/README.md>
 
 ### Code of conduct
 

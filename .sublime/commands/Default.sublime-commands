@@ -1,26 +1,18 @@
 [
     {
-        "caption": "distractionless: Documentation: English",
-        "command": "distractionless_open_docs",
+        "caption": "distractionless: Documentation",
+        "command": "open_url",
         "args":
         {
-            "resource_path": "docs/en/README.md"
-        }
-    },
-    {
-        "caption": "distractionless: Documentation: German (Deutsch)",
-        "command": "distractionless_open_docs",
-        "args":
-        {
-            "resource_path": "docs/de/README.md"
+            "url": "https://github.com/jrappen/sublime-distractionless/blob/master/README.md"
         }
     },
     {
         "caption": "distractionless: Changelog",
-        "command": "distractionless_open_docs",
+        "command": "open_url",
         "args":
         {
-            "resource_path": "CHANGELOG.md"
+            "url": "https://github.com/jrappen/sublime-distractionless/blob/master/CHANGELOG.md"
         }
     },
     {

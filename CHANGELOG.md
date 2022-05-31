@@ -1,5 +1,12 @@
 # Changelog `distractionless`
 
+## 2.12.0
+
+> 2022-05-31
+
+* **Python:** Switch to py3.8
+* **Python:** Remove dependencies
+
 ## 2.11.1
 
 > 2021-12-03
