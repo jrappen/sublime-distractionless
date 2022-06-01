@@ -61,7 +61,7 @@ def reset_view_setting(
     SYNTAX_PREF: Union[sublime.Settings, None],
     PREF: sublime.Settings,
     setting: str,
-    default: sublime.Value
+    default                                                                     # sublime.Value
 ) -> None:
 
     if SYNTAX_PREF is not None:
@@ -74,7 +74,7 @@ def set_view_setting(
     V_PREF: sublime.Settings,
     DF_PREF: sublime.Settings,
     setting: str,
-    default: sublime.Value
+    default                                                                     # sublime.Value
 ) -> None:
 
     V_PREF.set(setting, DF_PREF.get(setting, default))
