@@ -1,5 +1,11 @@
 # Changelog `distractionless`
 
+## 2.12.4
+
+> 2022-08-28
+
+* **Python:** Fix a few minor issues with typing
+
 ## 2.12.3
 
 > 2022-07-05
@@ -24,13 +30,6 @@
 
 * **Python:** Switch to py3.8
 * **Python:** Remove dependencies
-
-## 2.11.1
-
-> 2021-12-03
-
-* **Python:** Fix plugin loading
-* **Python:** Fix dependencies
 
 ## 2.11.0
 

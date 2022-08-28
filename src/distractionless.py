@@ -13,11 +13,13 @@ import typing
 
 
 PKG_NAME: typing.Final[str] = __package__.split('.')[0]
-DL_PREF: Union[sublime.Settings, None] = None
+DL_PREF: typing.Union[sublime.Settings, None] = None
 counters = None
 
 
-def plugin_loaded(reload: typing.Optional[bool] = False) -> None:
+def plugin_loaded(
+    reload: typing.Optional[bool] = False
+) -> None:
 
     try:
         global counters
@@ -37,33 +39,40 @@ def plugin_unloaded() -> None:
 
     try:
         global DL_PREF
-        DL_PREF.clear_on_change('reload')
+        if DL_PREF is not None:
+            DL_PREF.clear_on_change('reload')
     except Exception as e:
         print(f'{PKG_NAME}: Exception: {e}')
 
 
-def reset_counter(id: int) -> None:
+def reset_counter(
+    id: int
+) -> None:
 
     try:
         global counters
-        counters[id] = 0
+        if counters is not None:
+            counters[id] = 0
     except Exception as e:
         print(f'{PKG_NAME}: Exception: {e}')
 
 
-def increment_counter(id: int) -> int:
+def increment_counter(
+    id: int
+) -> int:
 
     try:
         global counters
-        counters[id] += 1
-        return counters[id]
+        if counters is not None:
+            counters[id] += 1
+            return counters[id]
     except Exception as e:
         print(f'{PKG_NAME}: Exception: {e}')
-        return 0
+    return 0
 
 def reset_view_setting(
     V_PREF: sublime.Settings,
-    SYNTAX_PREF: Union[sublime.Settings, None],
+    SYNTAX_PREF: typing.Union[sublime.Settings, None],
     PREF: sublime.Settings,
     setting: str,
     default: sublime.Value
@@ -88,22 +97,22 @@ def set_view_setting(
 class DistractionlessListener(sublime_plugin.EventListener):
 
     @staticmethod
-    def _revert_to_normal_and_reset_count(view) -> None:
-        w: typing.Final[Union[sublime.Window, None]] = view.window()
+    def __revert_to_normal_and_reset_count(view) -> None:
+        w: typing.Union[sublime.Window, None] = view.window()
         if w is None:
             w = sublime.active_window()
         reset_counter(w.id())
         # Sublime Text > Preferences > Settings
-        PREF: typing.Final[Union[sublime.Settings, None]] = sublime.load_settings('Preferences.sublime-settings')
+        PREF: typing.Final[typing.Union[sublime.Settings, None]] = sublime.load_settings('Preferences.sublime-settings')
         if DL_PREF is None:
             return
         for v in w.views():
-            V_PREF: Union[sublime.Settings, None] = v.settings()
+            V_PREF: typing.Union[sublime.Settings, None] = v.settings()
             if V_PREF is None:
                 continue
             current_syntax: str = V_PREF.get('syntax').split('/')[-1].split('.')[0]
             # Sublime Text > Preferences > Settings - Syntax Specific
-            SYNTAX_PREF: typing.Final[Union[sublime.Settings, None]] = sublime.load_settings(current_syntax + '.sublime-settings') if current_syntax is not None else None
+            SYNTAX_PREF: typing.Final[typing.Union[sublime.Settings, None]] = sublime.load_settings(current_syntax + '.sublime-settings') if current_syntax is not None else None
             reset_view_setting(V_PREF, SYNTAX_PREF, PREF, 'draw_centered', False)
             reset_view_setting(V_PREF, SYNTAX_PREF, PREF, 'draw_indent_guides', True)
             reset_view_setting(V_PREF, SYNTAX_PREF, PREF, 'draw_white_space', 'selection')
@@ -124,16 +133,16 @@ class DistractionlessListener(sublime_plugin.EventListener):
             return
         if DL_PREF is None:
             return
-        w: typing.Final[Union[sublime.Window, None]] = view.window()
+        w: typing.Union[sublime.Window, None] = view.window()
         if w is None:
             w = sublime.active_window()
         count: typing.Final[int] = increment_counter(w.id())
         if count is not DL_PREF.get('distractionless.toggle_after', 1):
             return
         # Sublime Text > Preferences > Settings - Distraction Free
-        DF_PREF: typing.Final[Union[sublime.Settings, None]] = sublime.load_settings('Distraction Free.sublime-settings')
+        DF_PREF: typing.Final[typing.Union[sublime.Settings, None]] = sublime.load_settings('Distraction Free.sublime-settings')
         for v in w.views():
-            V_PREF: Union[sublime.Settings, None] = v.settings()
+            V_PREF: typing.Union[sublime.Settings, None] = v.settings()
             if V_PREF is None:
                 continue
             set_view_setting(V_PREF, DF_PREF, 'draw_centered', True)
@@ -152,19 +161,19 @@ class DistractionlessListener(sublime_plugin.EventListener):
             w.set_minimap_visible(False)
 
     def on_activated_async(self, view) -> None:
-        self._revert_to_normal_and_reset_count(view)
+        self.__revert_to_normal_and_reset_count(view)
 
     def on_new_async(self, view) -> None:
-        self._revert_to_normal_and_reset_count(view)
+        self.__revert_to_normal_and_reset_count(view)
 
     def on_clone_async(self, view) -> None:
-        self._revert_to_normal_and_reset_count(view)
+        self.__revert_to_normal_and_reset_count(view)
 
     def on_load_async(self, view) -> None:
-        self._revert_to_normal_and_reset_count(view)
+        self.__revert_to_normal_and_reset_count(view)
 
     def on_pre_save_async(self, view) -> None:
-        self._revert_to_normal_and_reset_count(view)
+        self.__revert_to_normal_and_reset_count(view)
 
     def on_pre_close(self, view) -> None:
-        self._revert_to_normal_and_reset_count(view)
+        self.__revert_to_normal_and_reset_count(view)
