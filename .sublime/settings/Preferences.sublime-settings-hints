@@ -1,0 +1,10 @@
+{
+    // number of changes after which UI is toggled automatically
+    "distractionless.toggle_after": 1,
+
+    // toggle minimap when switching modes
+    "distractionless.toggle_minimap": true,
+
+    // toggle sidebar when switching modes
+    "distractionless.toggle_sidebar": true
+}

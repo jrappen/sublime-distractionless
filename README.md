@@ -63,6 +63,8 @@ Use the settings of Sublime Text to customize how views are displayed in each mo
 You might want to set the following in `Preferences > Settings`:
 
 ```jsonc
+// Packages/User/Preferences.sublime-settings
+
 {
     "auto_hide_menu": true,
     "auto_hide_status_bar": true,
@@ -70,21 +72,19 @@ You might want to set the following in `Preferences > Settings`:
 }
 ```
 
-Use the `distractionless` settings to further customize when and what is toggled:
-
-* `Preferences > Package Settings > distractionless > Settings`
-
-Below the currently supported settings:
+as well as the `distractionless` options:
 
 ```jsonc
+// Packages/User/Preferences.sublime-settings
+
 {
-//  number of changes after which UI is toggled automatically
+    // number of changes after which UI is toggled automatically
     "distractionless.toggle_after": 1,
 
-//  toggle minimap when switching modes
+    // toggle minimap when switching modes
     "distractionless.toggle_minimap": true,
 
-//  toggle sidebar when switching modes
+    // toggle sidebar when switching modes
     "distractionless.toggle_sidebar": true
 }
 ```

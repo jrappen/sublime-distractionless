@@ -4,6 +4,8 @@
 
 from __future__ import annotations
 
+import sublime
+
 from .src import *
 
 
