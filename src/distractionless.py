@@ -13,6 +13,7 @@ import typing
 
 
 PKG_NAME: typing.Final[str] = __package__.split('.')[0]
+PREF: typing.Union[sublime.Settings, None] = None
 counters = None
 
 
@@ -23,15 +24,21 @@ def plugin_loaded(
     try:
         global counters
         counters = defaultdict(int)
+        global PREF
+        PREF = sublime.load_settings(f'Preferences.sublime-settings')
+        PREF.clear_on_change('reload')
+        PREF.add_on_change('reload', lambda: plugin_loaded(reload=True))
+        print(f'{PKG_NAME}: Reloaded preferences on change.')
     except Exception as e:
         print(f'{PKG_NAME}: Exception: {e}')
-
-    print(f'{PKG_NAME}: Plugin loaded.')
 
 
 def plugin_unloaded() -> None:
 
     try:
+        global PREF
+        if PREF is not None:
+            PREF = None
         global counters
         if counters is not None:
             counters = None
@@ -66,13 +73,17 @@ def increment_counter(
         print(f'{PKG_NAME}: Exception: {e}')
     return 0
 
+
 def reset_view_setting(
     V_PREF: sublime.Settings,
     SYNTAX_PREF: typing.Union[sublime.Settings, None],
-    PREF: sublime.Settings,
     setting: str,
     default: sublime.Value
 ) -> None:
+
+    if PREF is None:
+        print(f'{PKG_NAME}: Failed to reset view settings, Preferences were not loaded.')
+        return
 
     if SYNTAX_PREF is not None:
         V_PREF.set(setting, SYNTAX_PREF.get(setting, PREF.get(setting, default)))
@@ -98,8 +109,6 @@ class DistractionlessListener(sublime_plugin.EventListener):
         if w is None:
             w = sublime.active_window()
         reset_counter(w.id())
-        # Sublime Text > Preferences > Settings
-        PREF: typing.Final[typing.Union[sublime.Settings, None]] = sublime.load_settings('Preferences.sublime-settings')
         for v in w.views():
             V_PREF: typing.Union[sublime.Settings, None] = v.settings()
             if V_PREF is None:
@@ -129,8 +138,6 @@ class DistractionlessListener(sublime_plugin.EventListener):
         if w is None:
             w = sublime.active_window()
         count: typing.Final[int] = increment_counter(w.id())
-        # Sublime Text > Preferences > Settings
-        PREF: typing.Final[typing.Union[sublime.Settings, None]] = sublime.load_settings('Preferences.sublime-settings')
         if count is not PREF.get('distractionless.toggle_after', 1):
             return
         # Sublime Text > Preferences > Settings - Distraction Free
