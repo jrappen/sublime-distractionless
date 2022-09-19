@@ -129,6 +129,8 @@ class DistractionlessListener(sublime_plugin.EventListener):
         if w is None:
             w = sublime.active_window()
         count: typing.Final[int] = increment_counter(w.id())
+        # Sublime Text > Preferences > Settings
+        PREF: typing.Final[typing.Union[sublime.Settings, None]] = sublime.load_settings('Preferences.sublime-settings')
         if count is not PREF.get('distractionless.toggle_after', 1):
             return
         # Sublime Text > Preferences > Settings - Distraction Free
