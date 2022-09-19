@@ -1,6 +1,6 @@
 # Changelog `distractionless`
 
-## 3.0.2
+## 3.0.3
 
 > 2022-09-20
 

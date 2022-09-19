@@ -116,16 +116,16 @@ class DistractionlessListener(sublime_plugin.EventListener):
             current_syntax: str = V_PREF.get('syntax').split('/')[-1].split('.')[0]
             # Sublime Text > Preferences > Settings - Syntax Specific
             SYNTAX_PREF: typing.Final[typing.Union[sublime.Settings, None]] = sublime.load_settings(current_syntax + '.sublime-settings') if current_syntax is not None else None
-            reset_view_setting(V_PREF, SYNTAX_PREF, PREF, 'draw_centered', False)
-            reset_view_setting(V_PREF, SYNTAX_PREF, PREF, 'draw_indent_guides', True)
-            reset_view_setting(V_PREF, SYNTAX_PREF, PREF, 'draw_white_space', 'selection')
-            reset_view_setting(V_PREF, SYNTAX_PREF, PREF, 'fold_buttons', True)
-            reset_view_setting(V_PREF, SYNTAX_PREF, PREF, 'gutter', True)
-            reset_view_setting(V_PREF, SYNTAX_PREF, PREF, 'line_numbers', True)
-            reset_view_setting(V_PREF, SYNTAX_PREF, PREF, 'rulers',[])
-            reset_view_setting(V_PREF, SYNTAX_PREF, PREF, 'scroll_past_end', True)
-            reset_view_setting(V_PREF, SYNTAX_PREF, PREF, 'word_wrap', 'auto')
-            reset_view_setting(V_PREF, SYNTAX_PREF, PREF, 'wrap_width', 0)
+            reset_view_setting(V_PREF, SYNTAX_PREF, 'draw_centered', False)
+            reset_view_setting(V_PREF, SYNTAX_PREF, 'draw_indent_guides', True)
+            reset_view_setting(V_PREF, SYNTAX_PREF, 'draw_white_space', 'selection')
+            reset_view_setting(V_PREF, SYNTAX_PREF, 'fold_buttons', True)
+            reset_view_setting(V_PREF, SYNTAX_PREF, 'gutter', True)
+            reset_view_setting(V_PREF, SYNTAX_PREF, 'line_numbers', True)
+            reset_view_setting(V_PREF, SYNTAX_PREF, 'rulers',[])
+            reset_view_setting(V_PREF, SYNTAX_PREF, 'scroll_past_end', True)
+            reset_view_setting(V_PREF, SYNTAX_PREF, 'word_wrap', 'auto')
+            reset_view_setting(V_PREF, SYNTAX_PREF, 'wrap_width', 0)
         if PREF.get('distractionless.toggle_sidebar', True):
             w.set_sidebar_visible(True)
         if PREF.get('distractionless.toggle_minimap', True):
