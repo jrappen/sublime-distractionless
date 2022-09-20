@@ -28,9 +28,13 @@ def plugin_loaded(
         PREF = sublime.load_settings(f'Preferences.sublime-settings')
         PREF.clear_on_change('reload')
         PREF.add_on_change('reload', lambda: plugin_loaded(reload=True))
-        print(f'{PKG_NAME}: Reloaded preferences on change.')
     except Exception as e:
         print(f'{PKG_NAME}: Exception: {e}')
+
+    if reload:
+        sublime.status_message(f'{PKG_NAME}: Reloaded preferences on change.')
+    else:
+        sublime.status_message(f'{PKG_NAME}: Plugin loaded.')
 
 
 def plugin_unloaded() -> None:

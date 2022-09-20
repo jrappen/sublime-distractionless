@@ -1,10 +1,11 @@
 # Changelog `distractionless`
 
-## 3.0.3
+## 3.0.4
 
 > 2022-09-20
 
 * use `Preferences.sublime-settings`
+* fix reloading package after update
 
 ### 2.12.0
 
