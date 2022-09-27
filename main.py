@@ -2,14 +2,10 @@
 # coding: utf-8
 
 
-from __future__ import annotations
-import sublime
-
-
 #[ Reload package after update ]################################################
 
 
-import sys
+import sys                                                                      # https://docs.python.org/3.8/library/sys.html
 
 
 prefix = __package__ + "."
@@ -26,13 +22,3 @@ prefix = None
 
 
 from .src import *
-
-
-def plugin_loaded() -> None:
-
-    distractionless.plugin_loaded(reload=False)
-
-
-def plugin_unloaded() -> None:
-
-    distractionless.plugin_unloaded()

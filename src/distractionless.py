@@ -2,14 +2,14 @@
 # coding: utf-8
 
 
-from __future__ import annotations
+from __future__ import annotations                                              # https://docs.python.org/3.8/library/__future__.html
 
-import sublime
-import sublime_plugin
+import sublime                                                                  # EXECUTABLE_DIR/Lib/python38/sublime.py
+import sublime_plugin                                                           # EXECUTABLE_DIR/Lib/python38/sublime_plugin.py
 
 
-from collections import defaultdict
-import typing
+from collections import defaultdict                                             # https://docs.python.org/3.8/library/collections.html
+import typing                                                                   # https://docs.python.org/3.8/library/typing.html
 
 
 PKG_NAME: typing.Final[str] = __package__.split('.')[0]
