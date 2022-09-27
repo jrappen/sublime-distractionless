@@ -16,19 +16,11 @@
         }
     },
     {
-        "caption": "distractionless: Report an issue",
+        "caption": "distractionless: Report a package issue",
         "command": "open_url",
         "args":
         {
             "url": "https://github.com/jrappen/sublime-distractionless/issues"
-        }
-    },
-    {
-        "caption": "distractionless: Donate to support development",
-        "command": "open_url",
-        "args":
-        {
-            "url": "https://www.paypal.me/jrappen"
         }
     }
 ]

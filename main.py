@@ -3,9 +3,10 @@
 
 
 from __future__ import annotations
-
-
 import sublime
+
+
+#[ Reload package after update ]################################################
 
 
 import sys
@@ -19,6 +20,9 @@ for module_name in [
 ]:
     del sys.modules[module_name]
 prefix = None
+
+
+################################################################################
 
 
 from .src import *
