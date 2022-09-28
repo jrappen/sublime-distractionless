@@ -109,6 +109,8 @@ class DistractionlessListener(sublime_plugin.EventListener):
 
     @staticmethod
     def __revert_to_normal_and_reset_count(view) -> None:
+        if PREF is None:
+            return
         w: typing.Union[sublime.Window, None] = view.window()
         if w is None:
             w = sublime.active_window()
@@ -136,6 +138,8 @@ class DistractionlessListener(sublime_plugin.EventListener):
             w.set_minimap_visible(True)
 
     def on_modified_async(self, view) -> None:
+        if PREF is None:
+            return
         if view.settings().get('is_widget', False):
             return
         w: typing.Union[sublime.Window, None] = view.window()

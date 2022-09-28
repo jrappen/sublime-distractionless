@@ -2,7 +2,7 @@
 # coding: utf-8
 
 
-from . import distractionless
+from .distractionless import *
 
 
 def plugin_loaded() -> None:
