@@ -6,6 +6,7 @@ from __future__ import annotations                                              
 
 import sublime                                                                  # EXECUTABLE_DIR/Lib/python38/sublime.py
 import sublime_plugin                                                           # EXECUTABLE_DIR/Lib/python38/sublime_plugin.py
+import sublime_types                                                            # EXECUTABLE_DIR/Lib/python38/sublime_types.py
 
 
 from collections import defaultdict                                             # https://docs.python.org/3.8/library/collections.html
@@ -82,7 +83,7 @@ def reset_view_setting(
     V_PREF: sublime.Settings,
     SYNTAX_PREF: typing.Union[sublime.Settings, None],
     setting: str,
-    default: sublime.Value
+    default: sublime_types.Value
 ) -> None:
 
     if PREF is None:
@@ -99,7 +100,7 @@ def set_view_setting(
     V_PREF: sublime.Settings,
     DF_PREF: sublime.Settings,
     setting: str,
-    default: sublime.Value
+    default: sublime_types.Value
 ) -> None:
 
     V_PREF.set(setting, DF_PREF.get(setting, default))
