@@ -1,5 +1,11 @@
 # Changelog `distractionless`
 
+## 3.0.9
+
+> 2022-10-28
+
+* fix import `sublime_types.Value`
+
 ## 3.0.8
 
 > 2022-10-19

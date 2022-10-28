@@ -6,11 +6,13 @@ from __future__ import annotations                                              
 
 import sublime                                                                  # EXECUTABLE_DIR/Lib/python38/sublime.py
 import sublime_plugin                                                           # EXECUTABLE_DIR/Lib/python38/sublime_plugin.py
-import sublime_types                                                            # EXECUTABLE_DIR/Lib/python38/sublime_types.py
 
 
 from collections import defaultdict                                             # https://docs.python.org/3.8/library/collections.html
 import typing                                                                   # https://docs.python.org/3.8/library/typing.html
+
+if typing.TYPE_CHECKING:
+    import sublime_types                                                        # EXECUTABLE_DIR/Lib/python38/sublime_types.py
 
 
 PKG_NAME: typing.Final[str] = __package__.split('.')[0]
