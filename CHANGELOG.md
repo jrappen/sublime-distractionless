@@ -1,5 +1,11 @@
 # Changelog `distractionless`
 
+## 3.0.10
+
+> 2023-01-18
+
+* move some methods
+
 ## 3.0.9
 
 > 2022-10-28
