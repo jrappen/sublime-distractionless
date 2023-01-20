@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3.8
 # coding: utf-8
 
 
@@ -84,8 +84,8 @@ def increment_counter(
 
 class DistractionlessListener(sublime_plugin.EventListener):
 
-    @staticmethod
     def __set_v_pref(
+        self,
         V_PREF: sublime.Settings,
         DF_PREF: sublime.Settings,
         setting: str,
@@ -93,8 +93,8 @@ class DistractionlessListener(sublime_plugin.EventListener):
     ) -> None:
         V_PREF.set(setting, DF_PREF.get(setting, default))
 
-    @staticmethod
     def __reset_v_pref(
+        self,
         V_PREF: sublime.Settings,
         SYNTAX_PREF: typing.Optional[sublime.Settings],
         setting: str,

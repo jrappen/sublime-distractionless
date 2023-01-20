@@ -1,5 +1,11 @@
 # Changelog `distractionless`
 
+## 3.0.11
+
+> 2023-01-20
+
+* fix typo
+
 ## 3.0.10
 
 > 2023-01-18
