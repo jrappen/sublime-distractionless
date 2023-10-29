@@ -32,12 +32,12 @@ def plugin_loaded(
         PREF.clear_on_change('reload')
         PREF.add_on_change('reload', lambda: plugin_loaded(reload=True))
     except Exception as e:
-        print(f'{PKG_NAME}: Exception: {e}')
+        print(f'{PKG_NAME}: Exception: \n\n{e}')
 
     if reload:
-        sublime.status_message(f'{PKG_NAME}: Reloaded preferences on change.')
+        print(f'{PKG_NAME}: Reloaded preferences on change.')
     else:
-        sublime.status_message(f'{PKG_NAME}: Plugin loaded.')
+        print(f'{PKG_NAME}: Plugin loaded.')
 
 
 def plugin_unloaded() -> None:
@@ -119,7 +119,8 @@ class DistractionlessListener(sublime_plugin.EventListener):
             V_PREF: typing.Optional[sublime.Settings] = v.settings()
             if V_PREF is None:
                 continue
-            current_syntax: str = V_PREF.get('syntax').split('/')[-1].split('.')[0]
+            current_syntax_obj: typing.Optional[sublime.Syntax] = v.syntax()
+            current_syntax: typing.Optional[str] = current_syntax_obj.name if current_syntax_obj is not None else None
             # Sublime Text > Preferences > Settings - Syntax Specific
             SYNTAX_PREF: typing.Final[typing.Optional[sublime.Settings]] = sublime.load_settings(current_syntax + '.sublime-settings') if current_syntax is not None else None
             self.__reset_v_pref(V_PREF, SYNTAX_PREF, 'draw_centered', False)

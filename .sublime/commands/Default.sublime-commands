@@ -16,7 +16,7 @@
         }
     },
     {
-        "caption": "distractionless: Report a package issue",
+        "caption": "distractionless: Report package issue",
         "command": "open_url",
         "args":
         {

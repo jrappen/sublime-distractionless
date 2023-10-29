@@ -29,7 +29,7 @@
                             },
                             { "caption": "-" },
                             {
-                                "caption": "Report a package issue",
+                                "caption": "Report package issue",
                                 "command": "open_url",
                                 "args":
                                 {

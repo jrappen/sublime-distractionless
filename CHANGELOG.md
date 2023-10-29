@@ -1,30 +1,37 @@
 # Changelog `distractionless`
 
-## 3.0.11
+## 4.0.0
+
+> 2023-10-29
+
+* BREAKING CHANGE: bumped requirements to Build 4081
+* use new(ish) syntax API
+
+#### 3.0.11
 
 > 2023-01-20
 
 * fix typo
 
-## 3.0.10
+#### 3.0.10
 
 > 2023-01-18
 
 * move some methods
 
-## 3.0.9
+#### 3.0.9
 
 > 2022-10-28
 
 * fix import `sublime_types.Value`
 
-## 3.0.8
+#### 3.0.8
 
 > 2022-10-19
 
 * fix import `sublime_types.Value`
 
-## 3.0.7
+#### 3.0.7
 
 > 2022-09-28
 
