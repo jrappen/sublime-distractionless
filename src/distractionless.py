@@ -119,8 +119,10 @@ class DistractionlessListener(sublime_plugin.EventListener):
             V_PREF: typing.Optional[sublime.Settings] = v.settings()
             if V_PREF is None:
                 continue
-            current_syntax_obj: typing.Optional[sublime.Syntax] = v.syntax()
-            current_syntax: typing.Optional[str] = current_syntax_obj.name if current_syntax_obj is not None else None
+            v_syntax_obj: typing.Final[typing.Optional[sublime.Syntax]] = v.syntax()
+            if v_syntax_obj is None:
+                continue
+            current_syntax: typing.Final[str] = v_syntax_obj.name
             # Sublime Text > Preferences > Settings - Syntax Specific
             SYNTAX_PREF: typing.Final[typing.Optional[sublime.Settings]] = sublime.load_settings(current_syntax + '.sublime-settings') if current_syntax is not None else None
             self.__reset_v_pref(V_PREF, SYNTAX_PREF, 'draw_centered', False)

@@ -1,5 +1,11 @@
 # Changelog `distractionless`
 
+#### 4.0.1
+
+> 2023-10-31
+
+* fix getting syntax name
+
 ## 4.0.0
 
 > 2023-10-29
