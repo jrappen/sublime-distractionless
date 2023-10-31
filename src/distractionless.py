@@ -32,7 +32,7 @@ def plugin_loaded(
         PREF.clear_on_change('reload')
         PREF.add_on_change('reload', lambda: plugin_loaded(reload=True))
     except Exception as e:
-        print(f'{PKG_NAME}: Exception: \n\n{e}')
+        print(f'{PKG_NAME}: Exception:\n\n{e}')
 
     if reload:
         print(f'{PKG_NAME}: Reloaded preferences on change.')
@@ -50,7 +50,7 @@ def plugin_unloaded() -> None:
         if counters is not None:
             counters = None
     except Exception as e:
-        print(f'{PKG_NAME}: Exception: {e}')
+        print(f'{PKG_NAME}: Exception:\n\n{e}')
 
     print(f'{PKG_NAME}: Plugin unloaded.')
 
@@ -64,7 +64,7 @@ def reset_counter(
         if counters is not None:
             counters[id] = 0
     except Exception as e:
-        print(f'{PKG_NAME}: Exception: {e}')
+        print(f'{PKG_NAME}: Exception:\n\n{e}')
 
 
 def increment_counter(
@@ -77,7 +77,7 @@ def increment_counter(
             counters[id] += 1
             return counters[id]
     except Exception as e:
-        print(f'{PKG_NAME}: Exception: {e}')
+        print(f'{PKG_NAME}: Exception:\n\n{e}')
     return 0
 
 
@@ -111,7 +111,7 @@ class DistractionlessListener(sublime_plugin.EventListener):
     def __revert_to_normal_and_reset_count(self, view) -> None:
         if PREF is None:
             return
-        w: typing.Optional[sublime.Window] = view.window()
+        w: typing.Final[typing.Optional[sublime.Window]] = view.window()
         if w is None:
             w = sublime.active_window()
         reset_counter(w.id())
@@ -119,10 +119,8 @@ class DistractionlessListener(sublime_plugin.EventListener):
             V_PREF: typing.Optional[sublime.Settings] = v.settings()
             if V_PREF is None:
                 continue
-            v_syntax_obj: typing.Final[typing.Optional[sublime.Syntax]] = v.syntax()
-            if v_syntax_obj is None:
-                continue
-            current_syntax: typing.Final[str] = v_syntax_obj.name
+            # syntax().name might return nothing if sublime-syntax file does not return a name field
+            current_syntax: typing.Final[str] = v.syntax().name or v.syntax().path.split('/')[-1].split('.')[0]
             # Sublime Text > Preferences > Settings - Syntax Specific
             SYNTAX_PREF: typing.Final[typing.Optional[sublime.Settings]] = sublime.load_settings(current_syntax + '.sublime-settings') if current_syntax is not None else None
             self.__reset_v_pref(V_PREF, SYNTAX_PREF, 'draw_centered', False)
@@ -145,7 +143,7 @@ class DistractionlessListener(sublime_plugin.EventListener):
             return
         if view.settings().get('is_widget', False):
             return
-        w: typing.Optional[sublime.Window] = view.window()
+        w: typing.Final[typing.Optional[sublime.Window]] = view.window()
         if w is None:
             w = sublime.active_window()
         count: typing.Final[int] = increment_counter(w.id())
