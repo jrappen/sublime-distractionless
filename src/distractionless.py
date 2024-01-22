@@ -111,7 +111,7 @@ class DistractionlessListener(sublime_plugin.EventListener):
     def __revert_to_normal_and_reset_count(self, view) -> None:
         if PREF is None:
             return
-        w: typing.Final[typing.Optional[sublime.Window]] = view.window()
+        w: typing.Optional[sublime.Window] = view.window()
         if w is None:
             w = sublime.active_window()
         reset_counter(w.id())
@@ -120,7 +120,7 @@ class DistractionlessListener(sublime_plugin.EventListener):
             if V_PREF is None:
                 continue
             # syntax().name might return nothing if sublime-syntax file does not return a name field
-            current_syntax: typing.Final[str] = v.syntax().name or v.syntax().path.split('/')[-1].split('.')[0]
+            current_syntax: typing.Final[str] = 'Plain text' if v.syntax() is None else v.syntax().name or v.syntax().path.split('/')[-1].split('.')[0]
             # Sublime Text > Preferences > Settings - Syntax Specific
             SYNTAX_PREF: typing.Final[typing.Optional[sublime.Settings]] = sublime.load_settings(current_syntax + '.sublime-settings') if current_syntax is not None else None
             self.__reset_v_pref(V_PREF, SYNTAX_PREF, 'draw_centered', False)
@@ -143,7 +143,7 @@ class DistractionlessListener(sublime_plugin.EventListener):
             return
         if view.settings().get('is_widget', False):
             return
-        w: typing.Final[typing.Optional[sublime.Window]] = view.window()
+        w: typing.Optional[sublime.Window] = view.window()
         if w is None:
             w = sublime.active_window()
         count: typing.Final[int] = increment_counter(w.id())

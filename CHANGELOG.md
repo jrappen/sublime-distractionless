@@ -1,5 +1,11 @@
 # Changelog `distractionless`
 
+#### 4.0.3
+
+> 2024-01-22
+
+* fix getting the syntax name in edge cases
+
 #### 4.0.2
 
 > 2023-10-31
