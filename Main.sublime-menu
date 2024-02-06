@@ -33,7 +33,7 @@
                                 "command": "open_url",
                                 "args":
                                 {
-                                    "url": "https://github.com/jrappen/sublime-distractionless/issues"
+                                    "url": "https://github.com/jrappen/sublime-distractionless/issues/"
                                 }
                             }
                         ]

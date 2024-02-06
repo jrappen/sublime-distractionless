@@ -68,16 +68,8 @@ You might want to set the following in `Preferences > Settings`:
 {
     "auto_hide_menu": true,
     "auto_hide_status_bar": true,
-    "auto_hide_tabs": true
-}
-```
+    "auto_hide_tabs": true,
 
-as well as the `distractionless` options:
-
-```jsonc
-// Packages/User/Preferences.sublime-settings
-
-{
     // number of changes after which UI is toggled automatically
     "distractionless.toggle_after": 1,
 
@@ -91,7 +83,7 @@ as well as the `distractionless` options:
 
 ## Source Code
 
-<https://www.github.com/jrappen/sublime-distractionless>
+<https://www.github.com/jrappen/sublime-distractionless/>
 
 ### License
 
