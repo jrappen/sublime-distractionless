@@ -1,5 +1,12 @@
 # Changelog `distractionless`
 
+#### 4.0.5
+
+> 2024-02-21
+
+* remove debugging code
+* remove redundant words from command descriptions & menu entries
+
 #### 4.0.4
 
 > 2024-02-08

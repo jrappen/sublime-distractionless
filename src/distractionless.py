@@ -20,9 +20,7 @@ PREF: typing.Optional[sublime.Settings] = None
 counters = None
 
 
-def plugin_loaded(
-    reload: typing.Optional[bool] = False
-) -> None:
+def plugin_loaded() -> None:
 
     try:
         global counters
@@ -30,14 +28,9 @@ def plugin_loaded(
         global PREF
         PREF = sublime.load_settings(f'Preferences.sublime-settings')
         PREF.clear_on_change('reload')
-        PREF.add_on_change('reload', lambda: plugin_loaded(reload=True))
+        PREF.add_on_change('reload', lambda: plugin_loaded())
     except Exception as e:
         print(f'{PKG_NAME}: Exception:\n\n{e}')
-
-    if reload:
-        print(f'{PKG_NAME}: Reloaded preferences on change.')
-    else:
-        print(f'{PKG_NAME}: Plugin loaded.')
 
 
 def plugin_unloaded() -> None:
@@ -51,8 +44,6 @@ def plugin_unloaded() -> None:
             counters = None
     except Exception as e:
         print(f'{PKG_NAME}: Exception:\n\n{e}')
-
-    print(f'{PKG_NAME}: Plugin unloaded.')
 
 
 def reset_counter(

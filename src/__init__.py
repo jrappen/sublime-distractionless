@@ -7,7 +7,7 @@ from .distractionless import *
 
 def plugin_loaded() -> None:
 
-    distractionless.plugin_loaded(reload=False)
+    distractionless.plugin_loaded()
 
 
 def plugin_unloaded() -> None:
