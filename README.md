@@ -1,5 +1,5 @@
 [![License](https://img.shields.io/github/license/jrappen/sublime-distractionless.svg?style=flat-square)](https://github.com/jrappen/sublime-distractionless/blob/master/LICENSE)
-[![Required ST Build](https://img.shields.io/badge/ST-4081+-orange.svg?style=flat-square&logo=sublime-text)](https://www.sublimetext.com)
+[![Required ST Build](https://img.shields.io/badge/ST-4203+-orange.svg?style=flat-square&logo=sublime-text)](https://www.sublimetext.com)
 [![Downloads Package Control](https://img.shields.io/packagecontrol/dt/distractionless.svg?style=flat-square)](https://packagecontrol.io/packages/distractionless)
 [![Latest tag](https://img.shields.io/github/tag/jrappen/sublime-distractionless.svg?style=flat-square&logo=github)](https://github.com/jrappen/sublime-distractionless/tags)
 [![Donate via PayPal](https://img.shields.io/badge/paypal.me-jrappen-009cde.svg?style=flat-square&logo=paypal)](https://www.paypal.me/jrappen)
@@ -26,7 +26,7 @@
 
 ## Requirements
 
-`distractionless` targets and is tested against the **latest Build** of Sublime Text, currently requiring **`Build 4081`** or later.
+`distractionless` targets and is tested against the **latest Build** of Sublime Text, currently requiring **`Build 4203`** or later.
 
 * Download [Sublime Text](https://www.sublimetext.com)
 * [Install Package Control](https://packagecontrol.io/installation) via the menu `Tools > Install Package Control`
