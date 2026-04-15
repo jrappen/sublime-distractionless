@@ -1,5 +1,11 @@
 # Changelog `distractionless`
 
+#### 5.0.0
+
+> 2026-04-15
+
+* BREAKING CHANGE: bump to py3.14, requires ST4201 or later
+
 #### 4.0.5
 
 > 2024-02-21

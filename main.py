@@ -1,14 +1,14 @@
-#!/usr/bin/env python3.8
+#!/usr/bin/env python3.14
 # coding: utf-8
 
 
 #[ Reload package after update ]################################################
 
 
-import sys                                                                      # https://docs.python.org/3.8/library/sys.html
+import sys                                                                      # https://docs.python.org/3.14/library/sys.html
 
 
-prefix = __package__ + "."
+prefix : str | None = f'{__package__}.'
 for module_name in [
     module_name
     for module_name in sys.modules
