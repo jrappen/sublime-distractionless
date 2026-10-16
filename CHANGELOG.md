@@ -1,5 +1,11 @@
 # Changelog `distractionless`
 
+#### 5.0.2
+
+> 2026-10-16
+
+* address [`jrappen/sublime-distractionless#2`](https://github.com/jrappen/sublime-distractionless/issues/2)
+
 #### 5.0.1
 
 > 2026-04-15
